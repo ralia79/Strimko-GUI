@@ -163,8 +163,61 @@ public class GameFrame extends JFrame {
         rb.addActionListener(new SwitchListener(this, 3));
     }
 
-
     public void init4() {
+
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        Container ct = getContentPane();
+
+        int[] streamPosition = {1, 1, 1, 2, 3, 3, 4, 1, 2, 1, 3, 3, 4,
+                                4, 1, 2, 3, 3, 4, 4, 5, 2, 6, 6, 4, 5,
+                                2, 5, 6, 6, 5, 5, 5, 2, 6, 6,};
+        Strimko game = new Strimko(6, 6, streamPosition);
+
+        ct.setLayout(new GridLayout(game.getGrid().length + 1, game.getGrid()[1].length));
+
+        buttonCount = 36;
+        buttons = new StrimkoButton[buttonCount];
+
+        for (int i = 0; i < game.getGrid().length; i++) {
+            for (int j = 0; j < game.getGrid()[1].length; j++) {
+
+                GameButton jb = new StrimkoButton((Strimkospot) game.getSpot(i, j));
+                buttons[i + game.getGrid().length * j] = jb;
+                ButtonNumberListener6 nc = new ButtonNumberListener6(jb, game, this);
+                ct.add(jb);
+                jb.addActionListener(nc);
+
+            }
+        }
+
+        message = new JLabel("You are playing Strimko");
+        ct.add(message);
+
+        JPanel controlRow = new JPanel();
+        ct.add(controlRow);
+
+        JButton checkPuzzle = new JButton("Check");
+        controlRow.add(checkPuzzle);
+        checkPuzzle.addActionListener(new CheckListener(game, this));
+
+        JButton solvePuzzle = new JButton("Give up?");
+        controlRow.add(solvePuzzle);
+
+        Solver solve = new Solver(game, this, 1);
+        solvePuzzle.addActionListener(solve);
+
+        JButton s = new JButton("Switch");
+        controlRow.add(s);
+        s.addActionListener(new NewLook(this));
+
+        JButton rb = new JButton("Reset");
+        controlRow.add(rb);
+        rb.addActionListener(new SwitchListener(this, 4));
+
+    }
+
+    public void init5() {
 
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -214,7 +267,7 @@ public class GameFrame extends JFrame {
 
         JButton rb = new JButton("Reset");
         controlRow.add(rb);
-        rb.addActionListener(new SwitchListener(this, 4));
+        rb.addActionListener(new SwitchListener(this, 5));
 
     }
 
@@ -223,7 +276,7 @@ public class GameFrame extends JFrame {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         Container contentPane = this.getContentPane();
 
-        contentPane.setLayout(new GridLayout(1, 4));
+        contentPane.setLayout(new GridLayout(1, 5));
 
         JButton change1 = new JButton("Strimko 3 * 3");
         contentPane.add(change1);
@@ -237,9 +290,13 @@ public class GameFrame extends JFrame {
         contentPane.add(change3);
         change3.addActionListener(new SwitchListener(this, 3));
 
-        JButton change4 = new JButton("Strimko 7 * 7");
+        JButton change4 = new JButton("Strimko 6 * 6");
         contentPane.add(change4);
         change4.addActionListener(new SwitchListener(this, 4));
+
+        JButton change5 = new JButton("Strimko 7 * 7");
+        contentPane.add(change5);
+        change5.addActionListener(new SwitchListener(this, 5));
 
 
     }
