@@ -6,19 +6,17 @@ import java.awt.event.ActionListener;
 public class ButtonNumberListener5 implements ActionListener {
 
     private GameButton myButton;
-    private Puzzle g;
     private GameFrame frame;
 
     JPopupMenu menu;
 
-    public ButtonNumberListener5(GameButton clicker, Puzzle game1, GameFrame fr) {
+    public ButtonNumberListener5(GameButton clicker, GameFrame fr) {
         myButton = clicker;
-        g = game1;
         frame = fr;
 
         // create a popup menu
         menu = new JPopupMenu("Menu");
-        NumberChangeListener num = new NumberChangeListener(myButton, g, frame);
+        NumberChangeListener num = new NumberChangeListener(myButton, frame);
 
         JMenuItem one = new JMenuItem("One");
         menu.add(one);

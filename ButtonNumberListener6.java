@@ -1,26 +1,22 @@
+import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
-import javax.swing.JMenuItem;
-import javax.swing.JPopupMenu;
 
 
 public class ButtonNumberListener6 implements ActionListener {
 
     private GameButton myButton;
-    private Puzzle g;
     private GameFrame frame;
 
-    JPopupMenu  menu;
+    JPopupMenu menu;
 
-    public ButtonNumberListener6(GameButton clicker, Puzzle game1, GameFrame fr) {
+    public ButtonNumberListener6(GameButton clicker, GameFrame fr) {
         myButton = clicker;
-        g = game1;
         frame = fr;
 
         // create a popup menu
         menu = new JPopupMenu("Menu");
-        NumberChangeListener num = new NumberChangeListener(myButton,g,frame);
+        NumberChangeListener num = new NumberChangeListener(myButton, frame);
 
         JMenuItem one = new JMenuItem("One");
         menu.add(one);
@@ -51,7 +47,7 @@ public class ButtonNumberListener6 implements ActionListener {
 
     public void actionPerformed(ActionEvent e) {
 
-        menu.show(myButton,myButton.getWidth()/2,myButton.getHeight()/2);
+        menu.show(myButton, myButton.getWidth() / 2, myButton.getHeight() / 2);
     }
 }
 

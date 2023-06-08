@@ -27,7 +27,7 @@ public class GameFrame extends JFrame {
 
                 GameButton jb = new StrimkoButton((Strimkospot) game.getSpot(i, j));
                 buttons[i + game.getGrid().length * j] = jb;
-                ButtonNumberListener3 nc = new ButtonNumberListener3(jb, game, this);
+                ButtonNumberListener3 nc = new ButtonNumberListener3(jb, this);
                 ct.add(jb);
                 jb.addActionListener(nc);
 
@@ -47,7 +47,7 @@ public class GameFrame extends JFrame {
         JButton solvePuzzle = new JButton("Give up?");
         controlRow.add(solvePuzzle);
 
-        Solver solve = new Solver(game, this, 1);
+        Solver solve = new Solver(game, this);
         solvePuzzle.addActionListener(solve);
 
         JButton s = new JButton("Switch");
@@ -66,8 +66,7 @@ public class GameFrame extends JFrame {
 
         Container ct = getContentPane();
 
-        int[] streamPosition = {1, 2, 3, 4, 2, 1, 3, 4,
-                2, 3, 1, 4, 3, 2, 1, 4};
+        int[] streamPosition = {1, 2, 3, 4, 2, 1, 3, 4, 2, 3, 1, 4, 3, 2, 1, 4};
         Strimko game = new Strimko(4, 4, streamPosition);
 
         ct.setLayout(new GridLayout(game.getGrid().length + 1, game.getGrid()[1].length));
@@ -80,7 +79,7 @@ public class GameFrame extends JFrame {
 
                 GameButton jb = new StrimkoButton((Strimkospot) game.getSpot(i, j));
                 buttons[i + game.getGrid().length * j] = jb;
-                ButtonNumberListener4 nc = new ButtonNumberListener4(jb, game, this);
+                ButtonNumberListener4 nc = new ButtonNumberListener4(jb, this);
                 ct.add(jb);
                 jb.addActionListener(nc);
 
@@ -100,7 +99,7 @@ public class GameFrame extends JFrame {
         JButton solvePuzzle = new JButton("Give up?");
         controlRow.add(solvePuzzle);
 
-        Solver solve = new Solver(game, this, 1);
+        Solver solve = new Solver(game, this);
         solvePuzzle.addActionListener(solve);
 
         JButton s = new JButton("Switch");
@@ -117,8 +116,7 @@ public class GameFrame extends JFrame {
 
         Container ct = getContentPane();
 
-        int[] streamPosition = {1, 1, 1, 2, 3, 4, 1, 2, 3, 6, 4, 1,
-                2, 3, 6, 4, 2, 3, 2, 6, 4, 4, 3, 6, 6};
+        int[] streamPosition = {1, 1, 1, 2, 3, 4, 1, 2, 3, 6, 4, 1, 2, 3, 6, 4, 2, 3, 2, 6, 4, 4, 3, 6, 6};
         Strimko game = new Strimko(5, 5, streamPosition);
 
         ct.setLayout(new GridLayout(game.getGrid().length + 1, game.getGrid()[1].length));
@@ -131,7 +129,7 @@ public class GameFrame extends JFrame {
 
                 GameButton jb = new StrimkoButton((Strimkospot) game.getSpot(i, j));
                 buttons[i + game.getGrid().length * j] = jb;
-                ButtonNumberListener5 nc = new ButtonNumberListener5(jb, game, this);
+                ButtonNumberListener5 nc = new ButtonNumberListener5(jb, this);
                 ct.add(jb);
                 jb.addActionListener(nc);
 
@@ -151,7 +149,7 @@ public class GameFrame extends JFrame {
         JButton solvePuzzle = new JButton("Give up?");
         controlRow.add(solvePuzzle);
 
-        Solver solve = new Solver(game, this, 1);
+        Solver solve = new Solver(game, this);
         solvePuzzle.addActionListener(solve);
 
         JButton s = new JButton("Switch");
@@ -169,9 +167,7 @@ public class GameFrame extends JFrame {
 
         Container ct = getContentPane();
 
-        int[] streamPosition = {1, 1, 1, 2, 3, 3, 4, 1, 2, 1, 3, 3, 4,
-                                4, 1, 2, 3, 3, 4, 4, 5, 2, 6, 6, 4, 5,
-                                2, 5, 6, 6, 5, 5, 5, 2, 6, 6,};
+        int[] streamPosition = {1, 1, 1, 2, 3, 3, 4, 1, 2, 1, 3, 3, 4, 4, 1, 2, 3, 3, 4, 4, 5, 2, 6, 6, 4, 5, 2, 5, 6, 6, 5, 5, 5, 2, 6, 6,};
         Strimko game = new Strimko(6, 6, streamPosition);
 
         ct.setLayout(new GridLayout(game.getGrid().length + 1, game.getGrid()[1].length));
@@ -184,7 +180,7 @@ public class GameFrame extends JFrame {
 
                 GameButton jb = new StrimkoButton((Strimkospot) game.getSpot(i, j));
                 buttons[i + game.getGrid().length * j] = jb;
-                ButtonNumberListener6 nc = new ButtonNumberListener6(jb, game, this);
+                ButtonNumberListener6 nc = new ButtonNumberListener6(jb, this);
                 ct.add(jb);
                 jb.addActionListener(nc);
 
@@ -204,7 +200,7 @@ public class GameFrame extends JFrame {
         JButton solvePuzzle = new JButton("Give up?");
         controlRow.add(solvePuzzle);
 
-        Solver solve = new Solver(game, this, 1);
+        Solver solve = new Solver(game, this);
         solvePuzzle.addActionListener(solve);
 
         JButton s = new JButton("Switch");
@@ -223,9 +219,7 @@ public class GameFrame extends JFrame {
 
         Container ct = getContentPane();
 
-        int[] streamPosition = {1, 1, 1, 3, 4, 4, 4, 1, 2, 3, 1, 7, 4, 7, 2, 1, 3, 1, 7, 4, 7,
-                3, 2, 2, 3, 7, 4, 7, 2, 3, 3, 5, 6, 7, 4, 5, 2, 2, 5, 5, 6, 6,
-                5, 5, 5, 6, 6, 6, 6};
+        int[] streamPosition = {1, 1, 1, 3, 4, 4, 4, 1, 2, 3, 1, 7, 4, 7, 2, 1, 3, 1, 7, 4, 7, 3, 2, 2, 3, 7, 4, 7, 2, 3, 3, 5, 6, 7, 4, 5, 2, 2, 5, 5, 6, 6, 5, 5, 5, 6, 6, 6, 6};
         Strimko game = new Strimko(7, 7, streamPosition);
 
         ct.setLayout(new GridLayout(game.getGrid().length + 1, game.getGrid()[1].length));
@@ -238,7 +232,7 @@ public class GameFrame extends JFrame {
 
                 GameButton jb = new StrimkoButton((Strimkospot) game.getSpot(i, j));
                 buttons[i + game.getGrid().length * j] = jb;
-                ButtonNumberListener7 nc = new ButtonNumberListener7(jb, game, this);
+                ButtonNumberListener7 nc = new ButtonNumberListener7(jb, this);
                 ct.add(jb);
                 jb.addActionListener(nc);
 
@@ -258,7 +252,7 @@ public class GameFrame extends JFrame {
         JButton solvePuzzle = new JButton("Give up?");
         controlRow.add(solvePuzzle);
 
-        Solver solve = new Solver(game, this, 1);
+        Solver solve = new Solver(game, this);
         solvePuzzle.addActionListener(solve);
 
         JButton s = new JButton("Switch");
